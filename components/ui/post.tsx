@@ -18,7 +18,7 @@ export const Post = ({
         className
       )}
     >
-      <div className="relative h-[200px]">
+      <div className="relative h-3/5">
         <Image src={img} alt="Post" fill objectFit="cover" />
       </div>
       <div className="p-4 ">
