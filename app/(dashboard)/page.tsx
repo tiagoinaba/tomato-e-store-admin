@@ -3,6 +3,7 @@ import postImage2 from "@/assets/heinz-post-2.jpg";
 import postImage3 from "@/assets/heinz-post-3.jpg";
 import mostarda from "@/assets/produtos/mostarda.webp";
 import AdminBarChart from "@/components/ui/AdminBarChart";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Post } from "@/components/ui/post";
 import { Product } from "@/components/ui/product";
@@ -33,10 +34,12 @@ export default function Home() {
         <div className="h-[50%] flex flex-col gap-4 -ml-6">
           <h2 className="flex gap-2 items-baseline font-bold text-3xl ml-6">
             R$673,00{" "}
-            <span className="flex text-sm items-center text-green-400">
-              <TriangleUpIcon />
-              +5.47%
-            </span>
+            <Badge className="bg-green-400 hover:bg-green-500">
+              <span className="flex text-sm items-center -ml-1 text-white">
+                <TriangleUpIcon />
+                +5.47%
+              </span>
+            </Badge>
           </h2>
           <AdminBarChart />
         </div>
