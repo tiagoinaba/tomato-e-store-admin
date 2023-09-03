@@ -16,15 +16,18 @@ export default function MyDropzone({
   value,
   setValue,
 }: DropzoneProps) {
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    setValue("files", acceptedFiles);
-    setFiles((prev) => [
-      ...prev,
-      ...acceptedFiles.map((file) =>
-        Object.assign(file, { preview: URL.createObjectURL(file) })
-      ),
-    ]);
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      setValue("files", acceptedFiles);
+      setFiles((prev) => [
+        ...prev,
+        ...acceptedFiles.map((file) =>
+          Object.assign(file, { preview: URL.createObjectURL(file) })
+        ),
+      ]);
+    },
+    [setValue]
+  );
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   const [files, setFiles] = useState<(File & { preview: string })[]>([]);
 
