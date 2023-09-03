@@ -21,24 +21,24 @@ export const MainNav = () => {
       label: "Dashboard",
       icon: (className: string) => <LayoutDashboard className={className} />,
     },
-    {
-      href: "/pedidos",
-      active: pathname === "/pedidos",
-      label: "Pedidos",
-      icon: (className: string) => <GanttChartSquare className={className} />,
-    },
+    // {
+    //   href: "/pedidos",
+    //   active: pathname === "/pedidos",
+    //   label: "Pedidos",
+    //   icon: (className: string) => <GanttChartSquare className={className} />,
+    // },
     {
       href: "/produtos",
       active: pathname === "/produtos",
       label: "Produtos",
       icon: (className: string) => <PackageSearch className={className} />,
     },
-    {
-      href: "/preferencias",
-      active: pathname === "/preferencias",
-      label: "Preferências",
-      icon: (className: string) => <Settings className={className} />,
-    },
+    // {
+    //   href: "/preferencias",
+    //   active: pathname === "/preferencias",
+    //   label: "Preferências",
+    //   icon: (className: string) => <Settings className={className} />,
+    // },
   ];
 
   return (

@@ -1,3 +1,5 @@
+"use client";
+
 import postImage1 from "@/assets/heinz-post-1.jpg";
 import postImage2 from "@/assets/heinz-post-2.jpg";
 import postImage3 from "@/assets/heinz-post-3.jpg";
@@ -7,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Post } from "@/components/ui/post";
 import { Product } from "@/components/ui/product";
+import { useProducts } from "@/hooks/use-products";
 import { TriangleUpIcon } from "@radix-ui/react-icons";
 import { PlusCircle } from "lucide-react";
 import Link from "next/link";
@@ -27,6 +30,7 @@ const posts = [
 ];
 
 export default function Home() {
+  const { products, isLoading, error } = useProducts();
   return (
     <div className="p-6 h-full flex gap-4">
       <div className="h-full bg-white w-1/2 rounded-lg shadow border transition-colors duration-500 hover:bg-red-50 p-4 flex gap-4 flex-col">
@@ -34,7 +38,7 @@ export default function Home() {
         <div className="h-[50%] flex flex-col gap-4 -ml-6">
           <h2 className="flex gap-2 items-baseline font-bold text-3xl ml-6">
             R$673,00{" "}
-            <Badge className="bg-green-400 hover:bg-green-500">
+            <Badge className="bg-green-500 hover:bg-green-600">
               <span className="flex text-sm items-center -ml-1 text-white">
                 <TriangleUpIcon />
                 +5.47%
@@ -88,13 +92,10 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex gap-2 h-full">
-            <Product name="Ketchup" price={10.67} className="" />
-            <Product
-              name="Mostarda"
-              price={9.69}
-              imgSrc={mostarda}
-              className=""
-            />
+            {products &&
+              products.map(({ imageUrl, ...rest }) => (
+                <Product imgUrl={JSON.parse(imageUrl)[0]} {...rest} />
+              ))}
           </div>
         </div>
       </div>

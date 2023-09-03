@@ -50,7 +50,7 @@ const AdminBarChart = () => {
             dataKey={"Lucro"}
             stackId={"a"}
             radius={[5, 5, 0, 0]}
-            fill="#4ade80"
+            fill="#22c55e"
           />
           <YAxis />
           <XAxis dataKey={"name"} />
