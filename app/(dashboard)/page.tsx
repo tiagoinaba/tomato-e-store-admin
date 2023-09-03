@@ -94,7 +94,11 @@ export default function Home() {
           <div className="flex gap-2 h-full">
             {products &&
               products.map(({ imageUrl, ...rest }) => (
-                <Product imgUrl={JSON.parse(imageUrl)[0]} {...rest} />
+                <Product
+                  key={rest.id}
+                  imgUrl={JSON.parse(imageUrl)[0]}
+                  {...rest}
+                />
               ))}
           </div>
         </div>
