@@ -31,6 +31,7 @@ const Products = () => {
           <Skeleton className="w-full h-full rounded" />
         </>
       ) : (
+        products &&
         products.map((product) => (
           <Product
             key={product.id}
